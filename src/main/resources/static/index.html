@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TICTIC | 실전 예매 플랫폼</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+<div class="page-shell">
+    <header class="topbar">
+        <a class="brand" href="/">TICTIC</a>
+        <nav class="topnav">
+            <a href="#services">Services</a>
+            <a href="#strengths">Strengths</a>
+            <a href="#roadmap">Roadmap</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow">LIVE TICKETING + CUSTOM SIMULATION</p>
+                <h1>실전 예매와 테스트 예매를 하나의 흐름으로 설계한 티켓팅 플랫폼</h1>
+                <p class="hero-description">
+                    실제 예매 경쟁을 처리하는 코어와, 사용자가 직접 조건을 설정해 부하를 재현하는
+                    시뮬레이션 예매를 같은 플랫폼에서 다룹니다.
+                </p>
+                <div class="hero-actions">
+                    <a class="primary-action" href="#services">서비스 보기</a>
+                    <a class="secondary-action" href="#roadmap">개발 로드맵</a>
+                </div>
+            </div>
+
+            <aside class="hero-panel">
+                <div class="metric-card">
+                    <span class="metric-label">Queue Core</span>
+                    <strong>Redis Sorted Set</strong>
+                    <p>실제 예매와 시뮬레이션 모두 같은 대기열 규칙을 공유합니다.</p>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-label">Concurrency</span>
+                    <strong>Redisson Lock</strong>
+                    <p>좌석 선점 경합을 제어하는 분산락 구조를 기준으로 확장합니다.</p>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-label">Traffic Replay</span>
+                    <strong>Kafka Bot Burst</strong>
+                    <p>사용자가 설정한 경쟁 강도를 서버에서 그대로 재현합니다.</p>
+                </div>
+            </aside>
+        </section>
+
+        <section class="section-grid" id="services">
+            <article class="feature-card live-card">
+                <span class="feature-tag">LIVE</span>
+                <h2>실제 예매 서비스</h2>
+                <p>행사 조회, 오픈 시점 대기열 진입, 좌석 선점, 실제 결제까지 실제 사용자 흐름을 처리합니다.</p>
+                <ul>
+                    <li>운영자 이벤트 관리</li>
+                    <li>실시간 대기 순위 갱신</li>
+                    <li>좌석 선점과 주문 처리</li>
+                </ul>
+            </article>
+
+            <article class="feature-card simulation-card">
+                <span class="feature-tag">SIMULATION</span>
+                <h2>커스텀 테스트 예매</h2>
+                <p>좌석 수, 경쟁자 수, 진입 속도, 시작 시각을 직접 설정해 성공 가능성을 미리 검증합니다.</p>
+                <ul>
+                    <li>난이도 프리셋 기반 설정</li>
+                    <li>봇 트래픽 재현</li>
+                    <li>결과 리포트 자동 생성</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="strength-section" id="strengths">
+            <div class="section-heading">
+                <p class="eyebrow">PLATFORM STRENGTH</p>
+                <h2>성장 가능한 구조를 전제로 한 메인 설계 포인트</h2>
+            </div>
+            <div class="strength-grid">
+                <article>
+                    <h3>공통 코어</h3>
+                    <p>LIVE와 SIMULATION은 대기열과 좌석 선점 규칙을 공유하고, 서비스별 차이는 전략 객체로 분리합니다.</p>
+                </article>
+                <article>
+                    <h3>실시간 업데이트</h3>
+                    <p>SSE 기반 상태 전파를 기준으로 대기 순위와 잔여 좌석 변화를 사용자에게 즉시 전달합니다.</p>
+                </article>
+                <article>
+                    <h3>운영 확장성</h3>
+                    <p>백오피스를 실예매와 테스트 예매로 분리해 운영 행위와 모니터링 책임을 나눕니다.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="roadmap-section" id="roadmap">
+            <div class="section-heading">
+                <p class="eyebrow">NEXT BUILD</p>
+                <h2>다음 구현 우선순위</h2>
+            </div>
+            <div class="roadmap-list">
+                <article>
+                    <span>01</span>
+                    <div>
+                        <h3>회원/인증 도메인</h3>
+                        <p>USER, ADMIN 구분과 Redis 기반 refresh token 저장 구조를 구축합니다.</p>
+                    </div>
+                </article>
+                <article>
+                    <span>02</span>
+                    <div>
+                        <h3>대기열 코어</h3>
+                        <p>LIVE와 SIMULATION에서 공통으로 사용하는 QueueService와 입장/순위/퇴장 규칙을 설계합니다.</p>
+                    </div>
+                </article>
+                <article>
+                    <span>03</span>
+                    <div>
+                        <h3>시뮬레이션 런너</h3>
+                        <p>사용자 설정값에 따라 봇을 발사하고 종료 후 리포트까지 이어지는 흐름을 연결합니다.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+</div>
+</body>
+</html>

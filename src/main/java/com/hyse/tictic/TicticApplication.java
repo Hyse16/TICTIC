@@ -1,12 +1,12 @@
-package com.practiceticket;
+package com.hyse.tictic;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PracticeTicketApplication {
+public class TicticApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(PracticeTicketApplication.class, args);
+        SpringApplication.run(TicticApplication.class, args);
     }
 }
