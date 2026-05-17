@@ -38,6 +38,7 @@ dependencies {
     implementation("com.querydsl:querydsl-jpa:${querydslVersion}:jakarta")
 
     runtimeOnly("com.mysql:mysql-connector-j")
+    runtimeOnly("com.h2database:h2")
 
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
@@ -48,7 +49,6 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.security:spring-security-test")
     testImplementation("org.springframework.kafka:spring-kafka-test")
-    testRuntimeOnly("com.h2database:h2")
 }
 
 val querydslDir = layout.projectDirectory.dir("src/main/generated")
