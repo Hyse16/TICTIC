@@ -1,7 +1,5 @@
 # TICTIC
 
-`info.md` 기준 Phase 1 환경 세팅용 초기 프로젝트입니다.
-
 ## 요구 환경
 
 - Java 17
