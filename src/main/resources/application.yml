@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: TICTIC
+  profiles:
+    default: local
+  datasource:
+    url: jdbc:mysql://localhost:${MYSQL_PORT:3306}/${MYSQL_DATABASE:practice_ticket}?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
+    username: ${MYSQL_USER:practice}
+    password: ${MYSQL_PASSWORD:practice1234}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+  data:
+    redis:
+      host: localhost
+      port: ${REDIS_PORT:6379}
+  kafka:
+    bootstrap-servers: localhost:${KAFKA_PORT:9092}
+    consumer:
+      auto-offset-reset: earliest
+      group-id: practice-ticket
+  batch:
+    jdbc:
+      initialize-schema: always
+  jackson:
+    time-zone: Asia/Seoul
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+app:
+  queue:
+    scheduler-interval-ms: 1000
+  seat:
+    hold-seconds: 300
+
+jwt:
+  secret: ${JWT_SECRET:change-me-to-a-long-random-secret}
+
+server:
+  port: ${APP_PORT:8080}

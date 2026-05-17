@@ -1,0 +1,12 @@
+package com.practiceticket;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class PracticeTicketApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(PracticeTicketApplication.class, args);
+    }
+}
